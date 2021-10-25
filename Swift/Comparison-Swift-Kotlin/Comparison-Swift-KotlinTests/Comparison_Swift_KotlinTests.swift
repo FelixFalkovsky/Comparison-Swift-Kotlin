@@ -10,13 +10,8 @@ import XCTest
 
 class Comparison_Swift_KotlinTests: XCTestCase {
 
-    var number: Int = 5
-    var emptyNumber: Int = 9
-    var sum: Int = 0
-    
     override func setUpWithError() throws {
-        sum = 5 + 9
-        print("💭\(sum)")
+        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
     override func tearDownWithError() throws {
@@ -34,4 +29,5 @@ class Comparison_Swift_KotlinTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+
 }
