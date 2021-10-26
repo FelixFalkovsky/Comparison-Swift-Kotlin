@@ -16,6 +16,9 @@ class ExampleUnitTest {
     }
 }
 
+/**
+ * Переменные и константы / Variables and constants
+ */
 class Something {
     val some = ""
     val user: String = ""
@@ -34,3 +37,6 @@ class Something {
         }
     }
 }
+/**
+ * Переменные и константы / Variables and constants
+ */
