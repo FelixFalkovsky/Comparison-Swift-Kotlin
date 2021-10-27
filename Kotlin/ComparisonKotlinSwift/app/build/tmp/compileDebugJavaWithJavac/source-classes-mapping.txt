@@ -1,2 +1,0 @@
-com/example/comparison_kotlin_swift/BuildConfig.java
- com.example.comparison_kotlin_swift.BuildConfig

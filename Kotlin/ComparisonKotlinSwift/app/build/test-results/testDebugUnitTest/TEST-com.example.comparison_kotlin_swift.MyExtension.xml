@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.comparison_kotlin_swift.MyExtension" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-10-26T16:38:10" hostname="MacBook-Pro.local" time="0.004">
-  <properties/>
-  <testcase name="extension_isCorrect" classname="com.example.comparison_kotlin_swift.MyExtension" time="0.004"/>
-  <system-out><![CDATA[Результат 89.6
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
