@@ -5,9 +5,13 @@ import org.junit.Test
 import org.junit.Assert.*
 
 /**
- * Example local unit test, which will execute on the development machine (host).
+ * Сравнение языков Kotlin и Swift
  *
- * See [testing documentation](http://d.android.com/tools/testing).
+ * https://github.com/FelixFalkovsky/Comparison-Swift-Kotlin
+ */
+
+/**
+ * Переменные и константы
  */
 class ExampleUnitTest {
     @Test
@@ -15,3 +19,59 @@ class ExampleUnitTest {
         assertEquals(4, 2 + 2)
     }
 }
+
+/**
+ * Форматирование кода // Скобки (круглые и фигурные)
+ */
+
+/**
+ * Управляющие конструкции // Pattern Matching
+ */
+
+/**
+ * Типы
+ */
+
+/**
+ * Строковая интерполяция
+ */
+
+/**
+ * Интервалы (Ranges)
+ */
+
+/**
+ * Коллекции
+ */
+
+/**
+ * Итерирование коллекций
+ */
+
+/**
+ * Процедуры и функции
+ */
+
+/**
+ * Интерфейсы
+ */
+
+/**
+ * Конструкторы
+ */
+
+/**
+ * Инстанцирование объектов
+ */
+
+/**
+ * Расширения классов
+ */
+
+/**
+ * Простые объекты и Singleton’ы
+ */
+
+/**
+ * Перегрузка операторов
+ */
