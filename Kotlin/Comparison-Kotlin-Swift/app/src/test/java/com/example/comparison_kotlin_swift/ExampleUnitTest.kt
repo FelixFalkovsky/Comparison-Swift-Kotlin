@@ -48,12 +48,26 @@ class ExampleUnitTest {
  */
 class CodeFormattingUnitTest {
     val hello = "Hello World"
-    @Test
-    fun printFormatinCode(value: Int): Int = value + 1
+    val number: Int = 0
 
+    fun increase(value: Int): Int = value + 1 // увеличиваем значение
+
+    //Будем подсчитывать математическую последовательность до того
+    // момента пока значение number не будет больше 10
+    fun statements() {
+        var number = 0
+        while (number < 10) {
+            number = number + (number + 1)
+            println("Результат $number")
+        }
+    }
+
+    @Test
     fun myPrintTest() {
         println("_______________________TEST____________________________")
+        println("Результат ${statements()}")
         println("Результат $hello")
+        println("Результат ${increase(2)}")
         println("_______________________TEST____________________________")
     }
 }
