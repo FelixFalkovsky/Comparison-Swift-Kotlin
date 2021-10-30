@@ -13,10 +13,33 @@ import org.junit.Assert.*
 /**
  * Переменные и константы
  */
+class Something(
+    val text: String? = ""
+) {
+
+}
+
 class ExampleUnitTest {
+    var some: Something? = Something("Hello World")
+    var userName = "Roman"
+    val oneMillion = 1_000_000
+    val creditCardNumber = 1234_5678_9012_3456L
+    val socialSecurityNumber = 999_99_9999L
+    val hexBytes = 0xFF_EC_DE_5E
+    val bytes = 0b11010010_01101001_10010100_10010010
     @Test
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
+    }
+    @Test
+    fun showSum() {
+        println("_______________________TEST____________________________")
+        val some = some!!
+        println("Результат \"$some\"")
+        println("Результат \"$userName\"") // выводим String в ковычках.
+        println("Результат $userName")
+        println("Результат ${oneMillion + socialSecurityNumber}")
+        println("_______________________TEST____________________________")
     }
 }
 
