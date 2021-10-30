@@ -58,14 +58,25 @@ class CodeFormattingUnitTest {
         var number = 0
         while (number < 10) {
             number = number + (number + 1)
-            println("Результат $number")
+            println("Результат statements $number")
         }
+    }
+
+    fun doWhile() {
+        var number = 0
+        do {
+            number = number + (number + 1)
+        } while (
+            number < 10
+        )
+        println("Результат doWhile $number")
     }
 
     @Test
     fun myPrintTest() {
         println("_______________________TEST____________________________")
-        println("Результат ${statements()}")
+        println("Результат doWhile ${doWhile()}")
+        println("Результат statements ${statements()}")
         println("Результат $hello")
         println("Результат ${increase(2)}")
         println("_______________________TEST____________________________")
@@ -75,9 +86,33 @@ class CodeFormattingUnitTest {
  * Управляющие конструкции // Pattern Matching
  */
 class ControlConstructsUnitTest {
+    val number = 55
+
+    fun startWhen() {
+        when (number) {
+            number -> println("Результат case 0 = $number")
+            in 0..7 -> println("Результат case 1 = $number")
+            in 7..50 -> println("Результат case 2 = $number")
+            in 51..100 -> println("Результат case 3 = $number")
+            else -> {
+                println("Результат $number")
+            }
+        }
+    }
+
+    fun startWhenIfElse() {
+        when {
+            number.isOdd() -> println("Результат $number")
+            number.isEven() -> println("Результат $number")
+        }
+    }
+    fun Int.isOdd() = this % 2 != 0
+    fun Int.isEven() = this % 2 == 0
+    @Test
     fun myPrintTest() {
         println("_______________________TEST____________________________")
-        println("Результат $")
+        println("Результат ${startWhen()}")
+        println("Результат ${startWhenIfElse()}")
         println("_______________________TEST____________________________")
     }
 }
