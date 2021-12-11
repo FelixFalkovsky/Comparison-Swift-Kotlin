@@ -2,9 +2,11 @@ package com.example.comparison_kotlin_swift
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import org.junit.Assert.* // импорт со звездочкой сделает видимыми не только классы,
+                          // объявленные в пакете, но и свойства и функции верхнего уровня
 import kotlin.math.abs
 import kotlin.math.max
+
 
 /**
  * Сравнение языков Kotlin и Swift
@@ -22,6 +24,7 @@ class Something(
 }
 
 class ExampleUnitTest {
+    public val name: String = "IceRock" // область видимости public как и Swift по умолчанию
     var some: Something? = Something("Hello World")
     var userName = "Roman"
     val oneMillion = 1_000_000
@@ -53,8 +56,8 @@ class CodeFormattingUnitTest {
     val number: Int = 0
     val numberArray = arrayOf(1, 2, 3, 4, 5, -100, -1024)
     val myArray =
-        mutableListOf("Apple", "Chery", "Banan") // mutableListOf - для Kotlin / listOf - Java
-    val fruitsArray: List<String> = myArray                // List - только для чтения
+        mutableListOf("Apple", "Chery", "Banan") // mutableListOf - изменяемый для Kotlin / listOf - Java
+    val fruitsArray: List<String> = myArray      // List - только для чтения
     val input =
         "Wissenschaft der automatischen Verarbeitung von Informationen mit Hilfe von Rechenanlagen."
 
