@@ -49,7 +49,7 @@ class ExampleUnitTest {
 }
 
 /**
- * Форматирование кода // Скобки (круглые и фигурные)
+ * Функции // Форматирование кода // Скобки (круглые и фигурные)
  */
 class CodeFormattingUnitTest {
     val hello = "Hello World"
@@ -72,18 +72,22 @@ class CodeFormattingUnitTest {
             println("Результат statements $number")
         }
     }
-
+    // Цикл while повторяет цикл пока условие истина.
+    // Однако в случае цикла после последнего выражения тела поток выполнения
+    // не выходит из цикла за закрывающую фигурную скобку, а снова возвращается
+    // к заголовку и снова проверяет условие.
+    @Test
     fun sortedFrutis() {
-        while (myArray != null) {
+        while (myArray.count() < 4) {
             myArray.add("Raspberries")
-            myArray.removeAt(3)
+            //myArray.removeAt(3)
             myArray.add(1, "Coconut")
             println("Результат doWhile ${myArray.toString()}")
             println("Результат doWhile ${fruitsArray.toString()}")
-            return
         }
     }
 
+    @Test // Реализация Map
     fun resultMap() {
         val result = numberArray.map {
             //  it * 10
@@ -97,11 +101,14 @@ class CodeFormattingUnitTest {
 
         var assorti = myArray.map { "The fruit " + it }
 
+        println("_______________________TEST____________________________")
         println(resultV.joinToString(","))
         println(result.joinToString(","))
         println(assorti.joinToString(","))
+        println("_______________________TEST____________________________")
     }
 
+    @Test // Реализация FlatMap c flatten и без
     fun resultFlatMap() {
         val resultFlatMap = numberArray.map {
             0..it
@@ -113,9 +120,12 @@ class CodeFormattingUnitTest {
             0..it
         }
 
+        println("_______________________TEST____________________________")
         println("Результат  ${resultFlatMap.joinToString(",")}")
+        println("_______________________TEST____________________________")
     }
 
+    @Test
     fun resultFold() {
         val result = numberArray.fold(Int.MIN_VALUE) { acc, i ->
             println("Результат acc: $acc, i: $i")
@@ -124,6 +134,19 @@ class CodeFormattingUnitTest {
         println("Результат minValue ${result}")
     }
 
+    // Реализация ForEach / forEachIndexed работает аналогично,
+    // вдобавок мы можем получить индекс позиции и его значение.
+    @Test
+    fun resultForEachIndex() {
+        val result = myArray.forEachIndexed { index, value ->
+
+            println("_______________________TEST____________________________")
+            println("Позиция по $index значение $value")
+            println("_______________________TEST____________________________")
+        }
+    }
+
+
     fun resultFilter() {
         val result = numberArray.filter {
             abs(it) < 100
@@ -131,6 +154,7 @@ class CodeFormattingUnitTest {
         println("Результат resultFilter ${result}")
     }
 
+    // Цикл do while
     fun doWhile() {
         var number = 0
         do {
@@ -162,6 +186,7 @@ class CodeFormattingUnitTest {
         it.length == shortestLenght
     }
 
+    @Test
     fun result() {
         wordsCount.map {
                 (k, v) -> "$k: $v"
@@ -169,8 +194,10 @@ class CodeFormattingUnitTest {
         println(shortestWords.joinToString(" , "))
     }
 
-
-
+    // Тип Any
+    fun testAny(info: Any, item: Any) {
+        
+    }
 
 
     @Test
@@ -190,6 +217,8 @@ class CodeFormattingUnitTest {
         println("_______________________TEST____________________________")
     }
 }
+
+
 /**
  * Управляющие конструкции // Pattern Matching
  */

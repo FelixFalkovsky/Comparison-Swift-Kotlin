@@ -76,9 +76,40 @@ class CodeFormattingTest: XCTestCase {
     return oldValue
   }
   
+  func statements() {
+    var number = 0
+    while number < 10 {
+      number = number + (number + 1)
+      print("Результат statements \(number)")
+    }
+  }
+  
+  func testSortedFrutis() {
+    while myArray != nil {
+      myArray.append("Raspberries")
+      myArray.remove(at: 3)
+      myArray.insert("Coconut", at: 1) // в Kotlin add
+      print("Результат while \(myArray)")
+      print("Результат while \(fruitsArray)")
+    }
+  }
+  
+  func testResultMap() throws {
+    var result = numberArray.map{
+      $0 + 100
+    }
+    
+    var assorti = myArray.map { "The frut" + $0 }
+    
+    print(" *** Test \(assorti)")
+    print(" *** Test \(result)")
+  }
+  
   func testExample() throws {
     print("_______________________TEST____________________________")
     print("\(increase(5))")
+    print("\( statements())")
+    print("\(testSortedFrutis())")
     print("_______________________TEST____________________________")
   }
   
