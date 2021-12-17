@@ -5,6 +5,9 @@
 //  Created by Felix on 27.10.2021.
 //
 
+// Для сравнение обоих языков созданны 2 проекте где
+// названия переменных классов и методов соответствуют друг другу
+
 import XCTest
 @testable import Comparison_Swift_Kotlin
 
@@ -95,7 +98,7 @@ class CodeFormattingTest: XCTestCase {
   }
   
   func testResultMap() throws {
-    var result = numberArray.map{
+    var result = numberArray.map {
       $0 + 100
     }
     
@@ -117,6 +120,59 @@ class CodeFormattingTest: XCTestCase {
 /*
  * Управляющие конструкции // Pattern Matching
  */
+
+class ControlConstructsUnitTest: XCTestCase {
+  let number = 55
+  
+  //
+  func testStartWhen() {
+    switch number {
+    case 0...7:
+      print("_______________________TEST____________________________")
+      print("Сработал кейс от 0 до 7")
+      print("_______________________TEST____________________________")
+    case 7...50:
+      print("_______________________TEST____________________________")
+      print("Сработал кейс от 7 до 50")
+      print("_______________________TEST____________________________")
+    case 51...100:
+      print("_______________________TEST____________________________")
+      print("Сработал кейс от 51 до 100")
+      print("_______________________TEST____________________________")
+    default:
+      print("\(number)")
+    }
+  }
+  
+  func testStartWhenIfElse() {
+    switch number {
+    case number:
+      number.isOdd
+      print("_______________________TEST____________________________")
+      print("\(number.isOdd)")
+      print("_______________________TEST____________________________")
+    default:
+      break
+    }
+  }
+  
+
+  
+}
+ //  В отличии от Kotlin в Swift для подобной реализации необходимо
+ //  создать расширение для Int isOdd.
+ //  по аналогии  isEven
+// !!! Возможно есть запись и короче
+extension Int {
+  var isOdd: Int {
+    var item = 0
+    if self != 0 {
+      item = self / 2
+    }
+    return item
+  }
+}
+
 
 /*
  * Типы

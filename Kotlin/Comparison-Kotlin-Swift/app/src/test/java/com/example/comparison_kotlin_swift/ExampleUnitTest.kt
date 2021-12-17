@@ -72,6 +72,7 @@ class CodeFormattingUnitTest {
             println("Результат statements $number")
         }
     }
+
     // Цикл while повторяет цикл пока условие истина.
     // Однако в случае цикла после последнего выражения тела поток выполнения
     // не выходит из цикла за закрывающую фигурную скобку, а снова возвращается
@@ -146,7 +147,7 @@ class CodeFormattingUnitTest {
         }
     }
 
-
+    @Test
     fun resultFilter() {
         val result = numberArray.filter {
             abs(it) < 100
@@ -155,6 +156,7 @@ class CodeFormattingUnitTest {
     }
 
     // Цикл do while
+    @Test
     fun doWhile() {
         var number = 0
         do {
@@ -198,7 +200,6 @@ class CodeFormattingUnitTest {
     fun testAny(info: Any, item: Any) {
         
     }
-
 
     @Test
     fun myPrintTest() {
@@ -245,6 +246,7 @@ class ControlConstructsUnitTest {
     }
     fun Int.isOdd() = this % 2 != 0 //this = self % = /
     fun Int.isEven() = this % 2 == 0
+
     @Test
     fun myPrintTest() {
         println("_______________________TEST____________________________")
