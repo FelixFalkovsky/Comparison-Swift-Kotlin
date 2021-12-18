@@ -258,7 +258,13 @@ class ControlConstructsUnitTest {
 /**
  * Типы
  */
+class SomeClass {}
+
 class TypeUnitTest {
+
+    val a: Any = "Hello"
+   // val b: AnyObject = SomeClass() // отсутствует AnyObject в Kotlin
+
     fun myPrintTest() {
         println("_______________________TEST____________________________")
         println("Результат $")
@@ -269,6 +275,17 @@ class TypeUnitTest {
  * Строковая интерполяция
  */
 class StringInterpolationUnitTest {
+    val nickname = "Roman"
+    var user = "Имя"
+
+    @Test
+    fun testStringInterpolation() {
+        println("_______________________TEST____________________________")
+        println("$nickname")
+        println("${nickname}")
+        println("_______________________TEST____________________________")
+    }
+    @Test
     fun myPrintTest() {
         println("_______________________TEST____________________________")
         println("Результат $")
@@ -279,9 +296,26 @@ class StringInterpolationUnitTest {
  * Интервалы (Ranges)
  */
 class IntervalsUnitTest {
+    val numberRange = 0..10
+    val untilRange = 10 until 20
+
+    @Test
+    fun testPrintRange() {
+        for (range in numberRange) { // в отличии от Swift скобки обязательны
+            println(range)
+        }
+    }
+
+    //Функция toList() преобразует интервал в список.
+    @Test
+    fun printToString() {
+        println(numberRange.toList())
+    }
+
+    @Test
     fun myPrintTest() {
         println("_______________________TEST____________________________")
-        println("Результат $")
+        println("Результат ${testPrintRange()}")
         println("_______________________TEST____________________________")
     }
 }

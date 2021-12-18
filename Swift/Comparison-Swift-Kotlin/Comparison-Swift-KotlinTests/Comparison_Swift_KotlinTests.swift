@@ -12,28 +12,28 @@ import XCTest
 @testable import Comparison_Swift_Kotlin
 
 class Comparison_Swift_KotlinTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+  
+  override func setUpWithError() throws {
+    // Put setup code here. This method is called before the invocation of each test method in the class.
+  }
+  
+  override func tearDownWithError() throws {
+    // Put teardown code here. This method is called after the invocation of each test method in the class.
+  }
+  
+  func testExample() throws {
+    // This is an example of a functional test case.
+    // Use XCTAssert and related functions to verify your tests produce the correct results.
+  }
+  
+  func testPerformanceExample() throws {
+    // This is an example of a performance test case.
+    self.measure {
+      // Put the code you want to measure the time of here.
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
-    
+  }
+  
+  
 }
 /**
  * Переменные и константы
@@ -156,12 +156,12 @@ class ControlConstructsUnitTest: XCTestCase {
     }
   }
   
-
+  
   
 }
- //  В отличии от Kotlin в Swift для подобной реализации необходимо
- //  создать расширение для Int isOdd.
- //  по аналогии  isEven
+//  В отличии от Kotlin в Swift для подобной реализации необходимо
+//  создать расширение для Int isOdd.
+//  по аналогии  isEven
 // !!! Возможно есть запись и короче
 extension Int {
   var isOdd: Int {
@@ -178,14 +178,49 @@ extension Int {
  * Типы
  */
 
+class SomeClass {}
+
+class TypeUnitTest {
+  
+  let a: Any = "Hello"
+  let b: AnyObject = SomeClass()
+  
+  func testPrint() {
+    print("_______________________TEST____________________________")
+    print("Результат $")
+    print("_______________________TEST____________________________")
+  }
+}
 /*
  * Строковая интерполяция
  */
-
+class StringInterpolationUnitTest: XCTestCase {
+  let nickname = "Roman"
+  
+  
+  func testStringInterpolation() {
+    print("\(nickname)")
+  }
+}
 /*
  * Интервалы (Ranges)
  */
-
+class IntervalUnitTest: XCTestCase {
+  let numberRange = 0...10
+  let untilRange = 10..<20
+  
+  func testPrintRange() {
+    for range in numberRange {  // в отличии от Kotlin скобки не нужны !
+      print(range)
+    }
+  }
+  
+  //Функция toList() преобразует интервал в список.
+  func testToString() {
+    print(Array(numberRange))
+  }
+  
+}
 /*
  * Коллекции
  */
