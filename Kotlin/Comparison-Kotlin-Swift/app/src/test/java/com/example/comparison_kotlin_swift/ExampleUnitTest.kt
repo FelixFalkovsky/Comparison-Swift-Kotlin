@@ -60,20 +60,41 @@ class ExampleUnitTest {
  */
 class PropertiesUnitTest {
     var user = "Roman"
-
+    var ages = 20
     //Полный синтаксис объявления свойства выглядит следующим образом:
     /*var <propertyName>[: <PropertyType>] [= <property_initializer>]
           [<getter>]
           [<setter>]
     */
 
-    var userName: String? = "Roman" {
-        get {
-
+    // синтаксис не однозначный без фигурных скобок !
+    var userName: String
+        get() = this.toString()
+        set(value) {
+            user = value
         }
-        set {
 
+    //Теневые поля
+    //В Kotlin поле используется только как часть свойства для хранения
+    // его значения в памяти. Поля не могут быть объявлены напрямую.
+    // Однако, когда свойству требуется теневое поле (backing field),
+    // Kotlin предоставляет его автоматически. На это теневое поле можно
+    // обратиться в методах доступа, используя идентификатор field
+
+    var age: Int = 10 // инициализатор назначает резервное поле напрямую
+        get() = field
+        set(value) {
+            require( age > ages)
+            field = value // значение при инициализации записывается
+                          // прямиком в backing field
+
+            // counter = value Использование 'counter' сделало бы сеттер рекурсивным
         }
+
+    @Test
+    fun printTest() {
+        userName = "Google"
+        customPrintln(user)
     }
 }
 
