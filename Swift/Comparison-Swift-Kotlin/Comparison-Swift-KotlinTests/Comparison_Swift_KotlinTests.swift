@@ -202,13 +202,13 @@ class StringInterpolationUnitTest: XCTestCase {
         print("\(nickname)")
     }
 }
+
 /*
  * Интервалы (Ranges)
  */
 class IntervalUnitTest: XCTestCase {
     let numberRange = 0...10
     let untilRange = 10..<20
-    let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
     
     func testPrintRange() {
         for range in numberRange {  // в отличии от Kotlin скобки не нужны !
@@ -226,6 +226,23 @@ class IntervalUnitTest: XCTestCase {
 }
 /*
  * Коллекции
+ */
+
+class DictionariesUnitTest: XCTestCase {
+    
+    var names = Array<String>()
+    let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    
+    func testArray() {
+        names.append("Niko") // = index 0
+        names.append("Leo") // = index 1
+        customPrint(data: names)
+    }
+    
+}
+
+/*
+ * Словари / Dictionaries / Maps
  */
 
 
@@ -260,3 +277,9 @@ class IntervalUnitTest: XCTestCase {
 /*
  * Перегрузка операторов
  */
+
+func customPrint(data: Any) {
+    print("_______________________TEST____________________________")
+    print("Результат \(data)")
+    print("_______________________TEST____________________________")
+}
