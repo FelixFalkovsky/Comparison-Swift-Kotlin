@@ -59,6 +59,29 @@ class VariableAndConstants_Test: XCTestCase {
     
 }
 
+
+/*
+ * Проперти // Properties
+ */
+class PropertiesUnitTest: XCTestCase {
+    var user = "Roman"
+    
+    var userName: String? {
+        get {
+            return user
+        }
+        set {
+            return user = "\(newValue ?? "")"
+        }
+    }
+    
+    func testProperties() throws {
+        userName = "Pupsik"
+        customPrint(data: user)
+    }
+}
+
+
 /*
  * Форматирование кода // Скобки (круглые и фигурные)
  */
@@ -79,7 +102,7 @@ class CodeFormattingTest: XCTestCase {
         return oldValue
     }
     
-    func statements() {
+    func testStatements() {
         var number = 0
         while number < 10 {
             number = number + (number + 1)
@@ -111,12 +134,13 @@ class CodeFormattingTest: XCTestCase {
     func testExample() throws {
         print("_______________________TEST____________________________")
         print("\(increase(5))")
-        print("\( statements())")
         print("\(testSortedFrutis())")
         print("_______________________TEST____________________________")
     }
     
 }
+
+
 /*
  * Управляющие конструкции // Pattern Matching
  */
@@ -224,19 +248,27 @@ class IntervalUnitTest: XCTestCase {
     
     
 }
+
 /*
  * Коллекции
  */
-
-class DictionariesUnitTest: XCTestCase {
+class CollectionUnitTest: XCTestCase {
     
     var names = Array<String>()
     let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    var countries = ["Switzerland", "France", "Germany"]
     
     func testArray() {
         names.append("Niko") // = index 0
         names.append("Leo") // = index 1
         customPrint(data: names)
+    }
+
+    func testCreateArray() {
+        countries.append("Italy")
+       // countries.remove("France") // не работает в Swift
+        countries.remove(at: 1)
+        customPrint(data: countries)
     }
     
 }
@@ -244,7 +276,14 @@ class DictionariesUnitTest: XCTestCase {
 /*
  * Словари / Dictionaries / Maps
  */
+//Словарь (Swift) или карта (Kotlin) - это очень полезная структура данных,
+//когда дело доходит до хранения различных значений. В то время как словари
+//и карты по умолчанию могут расширяться, как в Kotlin, так и в Swift, вы
+//можете определить их емкость для повышения производительности.
 
+class DictionariesUnitTest: XCTestCase {
+    
+}
 
 /*
  * Итерирование коллекций
