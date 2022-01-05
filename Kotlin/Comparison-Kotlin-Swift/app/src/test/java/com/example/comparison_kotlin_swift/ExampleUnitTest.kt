@@ -23,6 +23,12 @@ class Something(
 
 }
 
+ fun customPrintln(data: Any) {
+    println("_______________________TEST____________________________")
+    println("Результат ${data}")
+    println("_______________________TEST____________________________")
+}
+
 class ExampleUnitTest {
     public val name: String = "IceRock" // область видимости public как и Swift по умолчанию
     var some: Something? = Something("Hello World")
@@ -45,6 +51,29 @@ class ExampleUnitTest {
         println("Результат $userName")
         println("Результат ${oneMillion + socialSecurityNumber}")
         println("_______________________TEST____________________________")
+    }
+}
+
+
+/**
+ * Проперти // Properties
+ */
+class PropertiesUnitTest {
+    var user = "Roman"
+
+    //Полный синтаксис объявления свойства выглядит следующим образом:
+    /*var <propertyName>[: <PropertyType>] [= <property_initializer>]
+          [<getter>]
+          [<setter>]
+    */
+
+    var userName: String? = "Roman" {
+        get {
+
+        }
+        set {
+
+        }
     }
 }
 
@@ -271,6 +300,8 @@ class TypeUnitTest {
         println("_______________________TEST____________________________")
     }
 }
+
+
 /**
  * Строковая интерполяция
  */
@@ -292,6 +323,8 @@ class StringInterpolationUnitTest {
         println("_______________________TEST____________________________")
     }
 }
+
+
 /**
  * Интервалы (Ranges)
  */
@@ -309,7 +342,7 @@ class IntervalsUnitTest {
     //Функция toList() преобразует интервал в список.
     @Test
     fun printToString() {
-        println(numberRange.toList())
+        customPrintln(numberRange.toList())
     }
 
     @Test
@@ -319,16 +352,76 @@ class IntervalsUnitTest {
         println("_______________________TEST____________________________")
     }
 }
+
+
 /**
  * Коллекции
  */
 class CollectionUnitTest {
+
+    val stringArray = arrayOf<String>()  //создает список строк, изначально без элементов
+    val stringList = listOf<String>()
+    val stringFloatMap = mapOf<String, Float>()
+    val stringSet = setOf<String>()
+
+
+    val countries = mutableListOf("Switzerland", "France", "Germany")
+    //В Kotlin массивы могут быть изменяемыми, но объявляются с фиксированным размером.
+
+    val numbers = Array<Int>(5){0}
+
+    //Другой тип коллекции Kotlin, списки похожи на тип массива Swift.
+    //Списки могут иметь переменное количество элементов и могут увеличиваться в
+    //размере после объявления.
+    var names = ArrayList<String>() //создает список строк, изначально без элементов
+
+    @Test
+    fun  testArray() {
+        numbers[1] = 32
+        customPrintln(numbers[1])
+    }
+
+    @Test
+    fun createArray() {
+        countries.add("Italy")
+        countries.remove("France")
+        countries.removeAt(1)
+        customPrintln(countries)
+    }
+
+
     fun myPrintTest() {
         println("_______________________TEST____________________________")
         println("Результат $")
         println("_______________________TEST____________________________")
     }
 }
+
+/**
+ * Словари / Dictionaries / Maps
+ */
+class DictionariesUnitTest {
+    var namesWithAge = HashMap<String, Int>()
+    var namesWithAges = HashMap<String, Int>(20)
+    val namesAges = mapOf("Джон Доу" to 34, "Джейн Доу" to 29)
+    @Test
+    fun printTest() {
+        namesWithAge.put("John Doe", 34)
+        //или
+        namesWithAges["John Doe"] = 34
+
+        customPrintln(
+            namesWithAges
+        )
+    }
+
+    @Test // Создание не изменяемой карты
+    fun cteareTestMapOf() {
+       // namesAges.put("Jo Jo") // error
+    }
+}
+
+
 /**
  * Итерирование коллекций
  */
