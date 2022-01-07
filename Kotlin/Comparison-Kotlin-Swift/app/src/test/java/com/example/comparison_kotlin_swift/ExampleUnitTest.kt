@@ -61,6 +61,7 @@ class ExampleUnitTest {
 class PropertiesUnitTest {
     var user = "Roman"
     var ages = 20
+    var size = 0
     //Полный синтаксис объявления свойства выглядит следующим образом:
     /*var <propertyName>[: <PropertyType>] [= <property_initializer>]
           [<getter>]
@@ -90,6 +91,9 @@ class PropertiesUnitTest {
 
             // counter = value Использование 'counter' сделало бы сеттер рекурсивным
         }
+
+    val isEmpty: Boolean
+    get() = this.size == 0
 
     @Test
     fun printTest() {
