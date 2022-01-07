@@ -65,6 +65,8 @@ class VariableAndConstants_Test: XCTestCase {
  */
 class PropertiesUnitTest: XCTestCase {
     var user = "Roman"
+    var size = 0
+    var ages = 20
     
     var userName: String? {
         get {
@@ -73,6 +75,24 @@ class PropertiesUnitTest: XCTestCase {
         set {
             return user = "\(newValue ?? "")"
         }
+    }
+    
+    var age: Int {
+        get {
+            return ages
+        }
+        set(isValue) {
+            if isValue >= 20 {
+                ages = isValue
+            } else {
+                customPrint(data: "ERROR")
+            }
+        }
+    }
+    
+    func testAge() throws {
+        age = 13
+        customPrint(data: age)
     }
     
     func testProperties() throws {
