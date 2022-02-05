@@ -12,6 +12,10 @@ import kotlin.math.max
  * Сравнение языков Kotlin и Swift
  *
  * https://github.com/FelixFalkovsky/Comparison-Swift-Kotlin
+ *
+ * Для сравнение обоих языков созданны 2 проекта где
+ * названия переменных классов и методов соответствуют друг другу по этому
+ * для полноты картины нужно запустить оба
  */
 
 /**
@@ -30,14 +34,14 @@ class Something(
 }
 
 class ExampleUnitTest {
-    public val name: String = "IceRock" // область видимости public как и Swift по умолчанию
-    var some: Something? = Something("Hello World")
+
     var userName = "Roman"
     val oneMillion = 1_000_000
     val creditCardNumber = 1234_5678_9012_3456L
     val socialSecurityNumber = 999_99_9999L
     val hexBytes = 0xFF_EC_DE_5E
     val bytes = 0b11010010_01101001_10010100_10010010
+
     @Test
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
@@ -45,8 +49,6 @@ class ExampleUnitTest {
     @Test
     fun showSum() {
         println("_______________________TEST____________________________")
-        val some = some!!
-        println("Результат \"$some\"")
         println("Результат \"$userName\"") // выводим String в ковычках.
         println("Результат $userName")
         println("Результат ${oneMillion + socialSecurityNumber}")
@@ -68,7 +70,7 @@ class PropertiesUnitTest {
           [<setter>]
     */
 
-    // синтаксис не однозначный без фигурных скобок !
+    // синтаксис не однозначный без фигурных скобок в отличии от Swift!
     var userName: String
         get() = this.toString()
         set(value) {
@@ -429,6 +431,8 @@ class DictionariesUnitTest {
     var namesWithAge = HashMap<String, Int>()
     var namesWithAges = HashMap<String, Int>(20)
     val namesAges = mapOf("Джон Доу" to 34, "Джейн Доу" to 29)
+    val dictionary = listOf("Appel", "Bannan", "Tomate", "Tomate", "Appel", "Appel", "Cherry")
+
     @Test
     fun printTest() {
         namesWithAge.put("John Doe", 34)
@@ -444,6 +448,12 @@ class DictionariesUnitTest {
     fun cteareTestMapOf() {
        // namesAges.put("Jo Jo") // error
     }
+
+    @Test
+    fun testReduce() {
+        customPrintln(dictionary.reduce { acc, string -> acc + string })
+        customPrintln(dictionary.reduceIndexed { index, acc, string -> acc + string + 1 })
+    }
 }
 
 
@@ -457,6 +467,8 @@ class IteratingCollectionsUnitTest {
         println("_______________________TEST____________________________")
     }
 }
+
+
 /**
  * Процедуры и функции
  */
@@ -467,6 +479,8 @@ class ProceduresAndFunctionsUnitTest {
         println("_______________________TEST____________________________")
     }
 }
+
+
 /**
  * Интерфейсы
  */
@@ -477,6 +491,8 @@ class InterfacesUnitTest {
         println("_______________________TEST____________________________")
     }
 }
+
+
 /**
  * Конструкторы
  */
@@ -487,6 +503,8 @@ class ConstructsUnitTest {
         println("_______________________TEST____________________________")
     }
 }
+
+
 /**
  * Инстанцирование объектов
  */
@@ -497,6 +515,8 @@ class InstantiatingObjectsUnitTest {
         println("_______________________TEST____________________________")
     }
 }
+
+
 /**
  * Расширения классов
  */
@@ -507,6 +527,8 @@ class ExtensionUnitTest {
         println("_______________________TEST____________________________")
     }
 }
+
+
 /**
  * Простые объекты и Singleton’ы
  */
@@ -517,6 +539,8 @@ class ObjectUnitTest {
         println("_______________________TEST____________________________")
     }
 }
+
+
 /**
  * Перегрузка операторов
  */
