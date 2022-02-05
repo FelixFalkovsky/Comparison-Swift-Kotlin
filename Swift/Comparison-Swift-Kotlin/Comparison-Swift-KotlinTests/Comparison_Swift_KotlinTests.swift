@@ -13,6 +13,9 @@ import XCTest
 
 /**
  * Переменные и константы
+ *
+ * Итак, как вы можете видеть выше, основное различие между объявлением
+ * неизменяемых свойств в Kotlin и Swift заключается в ключевых словах val и let.
  */
 class VariableAndConstants_Test: XCTestCase {
     
@@ -368,13 +371,25 @@ class ProceduresAndFunctionsUnitTest: XCTestCase {
 
 /*
  * Конструкторы
+ *
+ * То, что известно как «конструкторы» в Kotlin,
+ * в Swift называется «инициализаторами».
  */
-class ConstructsUnitTest: XCTestCase {
-    let nickname = "Roman"
+public class User {
+    var nickname: String
+    var isActive: Bool
     
+    init(nickname: String = "Jon") {
+        self.nickname = nickname
+        self.isActive = true
+    }
+}
+
+public class ConstructsUnitTest: XCTestCase {
+    let user = User()
     
-    func testStringInterpolation() {
-        print("\(nickname)")
+    func testStringInterpolation() throws {
+        customPrint(data: user.nickname)
     }
 }
 
