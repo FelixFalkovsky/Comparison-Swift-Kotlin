@@ -5,36 +5,12 @@
 //  Created by Felix on 27.10.2021.
 //
 
-// Для сравнение обоих языков созданны 2 проекте где
-// названия переменных классов и методов соответствуют друг другу
+// Для сравнение обоих языков созданны 2 проекта где
+// названия переменных классов и методов соответствуют друг другу по этому для полноты картины нужно запустить оба
 
 import XCTest
 @testable import Comparison_Swift_Kotlin
 
-class Comparison_Swift_KotlinTests: XCTestCase {
-    
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-    
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
-    
-}
 /**
  * Переменные и константы
  */
@@ -47,11 +23,7 @@ class VariableAndConstants_Test: XCTestCase {
     let hexBytes = 0xFF_EC_DE_5E
     let bytes = 0b11010010_01101001_10010100_10010010
     
-    func testExample() throws {
-        printTest()
-    }
-    
-    func printTest() {
+    func testPrint() throws {
         print("_______________________TEST____________________________")
         print("\(userName) \n \(oneMillion) \n \(creditCardNumber) \n \(socialSecurityNumber) \n \(hexBytes) \n \(bytes)")
         print("_______________________TEST____________________________")
@@ -141,11 +113,11 @@ class CodeFormattingTest: XCTestCase {
     }
     
     func testResultMap() throws {
-        var result = numberArray.map {
+        let result = numberArray.map {
             $0 + 100
         }
         
-        var assorti = myArray.map { "The frut" + $0 }
+        let assorti = myArray.map { "The frut" + $0 }
         
         print(" *** Test \(assorti)")
         print(" *** Test \(result)")
@@ -164,7 +136,6 @@ class CodeFormattingTest: XCTestCase {
 /*
  * Управляющие конструкции // Pattern Matching
  */
-
 class ControlConstructsUnitTest: XCTestCase {
     let number = 55
     
@@ -221,7 +192,6 @@ extension Int {
 /*
  * Типы
  */
-
 class SomeClass {}
 
 class TypeUnitTest {
@@ -235,6 +205,8 @@ class TypeUnitTest {
         print("_______________________TEST____________________________")
     }
 }
+
+
 /*
  * Строковая интерполяция
  */
@@ -246,6 +218,7 @@ class StringInterpolationUnitTest: XCTestCase {
         print("\(nickname)")
     }
 }
+
 
 /*
  * Интервалы (Ranges)
@@ -268,6 +241,7 @@ class IntervalUnitTest: XCTestCase {
     
     
 }
+
 
 /*
  * Коллекции
@@ -293,6 +267,7 @@ class CollectionUnitTest: XCTestCase {
     
 }
 
+
 /*
  * Словари / Dictionaries / Maps
  */
@@ -300,42 +275,186 @@ class CollectionUnitTest: XCTestCase {
 //когда дело доходит до хранения различных значений. В то время как словари
 //и карты по умолчанию могут расширяться, как в Kotlin, так и в Swift, вы
 //можете определить их емкость для повышения производительности.
-
 class DictionariesUnitTest: XCTestCase {
+    var newDictionary: Dictionary<String, Int> = [:]
+    var oldDictionary: Dictionary<String, Int> = [:]
+    var namesWithAge = Dictionary<String, Int>()
+    var namesWithAges = Dictionary<String, Int>(minimumCapacity: 20)
+    var dictionary = ["Appel" : 1, "Bannan" : 2, "Tomate" : 3]
+    var dictionary2 = ["Appel Bannan Tomate Tomate Appel Appel Cherry"]
+    
+    // 1 - c использованием метода mapValues
+    func testPrint() {
+        newDictionary = dictionary.mapValues { value in
+            return value + 1
+        }
+        
+        oldDictionary = dictionary.mapValues { $0 + 1 }
+        
+        customPrint(data: oldDictionary)
+    }
+    
+    // 2 - c использованием метода map и init(uniqueKeysWithValues:)
+    func testMapDictionary() throws {
+        var createDictionary = dictionary.map { (key: String, value: Int) in
+            return (key, value + 0)
+        }
+        
+        // Альтернативный вареант короткий
+        createDictionary = dictionary.map{ ($0, $1 + 1) }
+        
+        newDictionary = Dictionary(uniqueKeysWithValues: createDictionary)
+        customPrint(data: newDictionary)
+    }
+    
+    // 3 - с использованием метода Dictionary reduce(_:_:) или метода reduce(into:_:)
+    func testReducerDictionaryV1() throws {
+        let createDictionary = dictionary.reduce([:]) { ( partialResult: [String: Int], tuple: (key: String, value: Int)) in
+            var result = partialResult
+            result[tuple.key] = tuple.value + 1
+            return result
+        }
+        customPrint(data: createDictionary)
+    }
+    
+    func testReducerDictionary() throws {
+        let createDictionary = dictionary.reduce(into: [:]) { (result: inout[String: Int], tuple: (key: String, value: Int)) in
+            result[tuple.key] = tuple.value + 1
+        }
+        customPrint(data: createDictionary)
+    }
     
 }
+
 
 /*
  * Итерирование коллекций
  */
+class IteratingCollectionsUnitTest: XCTestCase {
+    let nickname = "Roman"
+    
+    
+    func testStringInterpolation() {
+        print("\(nickname)")
+    }
+}
+
 
 /*
  * Процедуры и функции
  */
+class FunctionsUnitTest: XCTestCase {
+    let nickname = "Roman"
+    
+    
+    func testStringInterpolation() {
+        print("\(nickname)")
+    }
+}
+
 
 /*
  * Интерфейсы
  */
+class ProceduresAndFunctionsUnitTest: XCTestCase {
+    let nickname = "Roman"
+    
+    
+    func testStringInterpolation() {
+        print("\(nickname)")
+    }
+}
+
 
 /*
  * Конструкторы
  */
+class ConstructsUnitTest: XCTestCase {
+    let nickname = "Roman"
+    
+    
+    func testStringInterpolation() {
+        print("\(nickname)")
+    }
+}
+
 
 /*
  * Инстанцирование объектов
  */
+class InstantiatingObjectsUnitTest: XCTestCase {
+    let nickname = "Roman"
+    
+    
+    func testStringInterpolation() {
+        print("\(nickname)")
+    }
+}
+
 
 /*
  * Расширения классов
  */
+class ExtensionnUnitTest: XCTestCase {
+    let nickname = "Roman"
+    
+    
+    func testStringInterpolation() {
+        print("\(nickname)")
+    }
+}
+
 
 /*
  * Простые объекты и Singleton’ы
  */
+class ObjectUnitTest: XCTestCase {
+    let nickname = "Roman"
+    
+    
+    func testStringInterpolation() {
+        print("\(nickname)")
+    }
+}
+
 
 /*
  * Перегрузка операторов
  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 func customPrint(data: Any) {
     print("_______________________TEST____________________________")
