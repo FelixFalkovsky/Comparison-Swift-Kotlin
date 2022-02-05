@@ -21,18 +21,6 @@ import kotlin.math.max
 /**
  * Переменные и константы
  */
-class Something(
-    val text: String? = ""
-) {
-
-}
-
- fun customPrintln(data: Any) {
-    println("_______________________TEST____________________________")
-    println("Результат ${data}")
-    println("_______________________TEST____________________________")
-}
-
 class ExampleUnitTest {
 
     var userName = "Roman"
@@ -521,6 +509,9 @@ class InstantiatingObjectsUnitTest {
  * Расширения классов
  */
 class ExtensionUnitTest {
+
+
+
     fun myPrintTest() {
         println("_______________________TEST____________________________")
         println("Результат $")
@@ -544,3 +535,9 @@ class ObjectUnitTest {
 /**
  * Перегрузка операторов
  */
+
+fun customPrintln(data: Any) {
+    print("_______________________TEST____________________________")
+    print("Результат ${data}")
+    print("_______________________TEST____________________________")
+}
